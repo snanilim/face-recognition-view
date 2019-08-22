@@ -1,0 +1,207 @@
+/* Custom Common CSS start */
+.ant-layout{
+    background-image: url("../img/bg-21.jpg");
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%;  
+}
+
+
+
+.ctm-100-vh{
+    height: 100vh;
+}
+.ctm-overflow-hide{
+    overflow: hidden;
+}
+.ant-input, .ant-select-selection--single{
+    height: 50px;
+    background: transparent;
+    border: 1px dashed #fff;
+    color: #000;
+}
+.ant-btn-primary{
+    color: #000;
+    background-color: transparent;
+    border: 1px dashed #fff;
+}
+
+.ant-btn-primary:hover, .ant-btn-primary:focus{
+    color: #fff;
+    background-color: #000;
+    border: 1px dashed #000;
+}
+
+.ctm-h-50{
+    height: 50px;
+}
+.minvh-100{
+    min-height: 100%;
+}
+table ul {
+    list-style-type: none;
+    padding: 0 !important;
+}
+.table-view{
+    padding: 50px;
+}
+.table td, .table th {
+    padding: .3rem;
+    font-size: 11px;
+}
+
+i{
+    position: relative;
+    top: -3px;
+}
+
+.ant-drawer-content{
+    overflow: scroll;
+}
+
+
+
+
+
+.card-items .ant-card-actions{
+    border-top: 0px solid #e8e8e8;
+    background: transparent;
+}
+.card-items .ant-card-actions > li:not(:last-child) {
+    border-right: 0px solid #e8e8e8;
+}
+
+.card-items .ant-card-actions{
+    opacity: 0;
+    transition: all .3s;
+}
+.card-items:hover .ant-card-actions{
+    opacity: 1;
+    transition: all .3s;
+}
+
+
+
+
+
+
+
+.left-side-first {
+    margin-left: 25%;
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+    transition: all .5s;
+}
+.left-side {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    transition: all .5s;
+}
+
+.right-side-first{
+    position: relative;
+    float: right;
+    width: 0%;
+    overflow: hidden;
+    border-left: 1px solid #ddd;
+    padding-left: 2%;
+    transition: all .3s;
+    opacity: 0;
+}
+
+.right-side{
+    position: relative;
+    float: right;
+    width: 28%;
+    border-left: 1px solid #ddd;
+    padding-left: 2%;
+    transition-delay: 1s;
+    transition: all .3s;
+}
+
+.animated-all{
+    transition: all .25s;
+}
+
+
+
+
+
+.header-filter{
+    right: 30px;
+    cursor: pointer;
+}
+
+.ant-layout-sider-trigger{
+    color: #002140;
+    background: #fff;
+}
+
+.ant-upload.ant-upload-select-picture-card{
+    width: 250px;
+    height: 200px;
+}
+.ant-layout-header {
+    background: transparent;
+}
+.ant-menu{
+    border: transparent;
+}
+.ant-menu ul, .ant-menu ol{
+    text-align: center;
+}
+.ant-menu-horizontal > .ant-menu-item, .ant-menu-horizontal > .ant-menu-submenu{
+    background: rgba(35, 41, 53, 0.8);
+    color: #fff;
+    margin: 3px;
+    border-radius: 25px;
+}
+.ant-avatar > img{
+    border: 1px dashed #fff;
+}
+
+
+
+
+.message{
+    position: fixed;
+    left: 30%;
+    top: 5%;
+    z-index: 1;
+    background: rgb(35, 41, 53);
+    color: #fff;
+    width: 40%;
+    text-align: center;
+}
+.close{
+    color: #fff;
+}
+
+
+
+.ant-upload.ant-upload-select-picture-card{
+    background: transparent;
+}
+.main-face-back{
+    position: relative;
+    width: 650px;
+    margin: 0 auto;
+}
+.child-back{
+    position: absolute;
+    width: 80%;
+    top: 60px;
+    left: 10%;
+    margin: 0 auto;
+    text-align: center;
+}
+/* Custom Common CSS end */
+

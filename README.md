@@ -1,2 +1,2 @@
-# face-recognition-view
-face-recognition-view
+# gr-view
+gr-view
