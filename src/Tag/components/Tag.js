@@ -56,13 +56,14 @@ class MatchImageForm extends React.Component {
   state = {
     loading: false,
     pending: true,
-    matchInfo: {}
+    matchInfo: {},
+    gifView: false,
   };
 
   
   handleChange = info => {
     console.log('info', info.file.name)
-    this.setState({ pending: true, matchInfo: {} });
+    this.setState({ pending: true, matchInfo: {}, gifView: true });
     if (info.file.status === 'uploading') {
       this.setState({ loading: true });
       return;
@@ -75,20 +76,28 @@ class MatchImageForm extends React.Component {
           imageUrl,
           imageName: info.file.name,
           loading: false,
+          gifView: false
         }),
       );
     }
   };
 
+  inputChange = () => {
+    this.setState({ pending: true, matchInfo: {} });
+  }
+
 
   handleSubmit = (e) => {
     e.preventDefault();
     console.log('imageUrl', this.state.imageUrl)
+
+    
     
     const { form, dispatch } = this.props;
     const { imageUrl, imageName } = this.state;
     form.validateFields((err, values) => {
       if (!err) {
+        this.setState({ gifView: true });
         dispatch(match(values.nid_number, imageUrl, imageName, this.props));
       }
     });
@@ -100,7 +109,8 @@ class MatchImageForm extends React.Component {
     if(Object.keys(matchInfo).length > 0 && this.state.pending == true){
       this.setState({ 
         pending: false,
-        matchInfo: matchInfo
+        matchInfo: matchInfo,
+        gifView: false
       });
     }
     
@@ -124,7 +134,7 @@ class MatchImageForm extends React.Component {
         <div className="ant-upload-text">Upload</div>
       </div>
     );
-    const { imageUrl, pending, matchInfo } = this.state;
+    const { imageUrl, pending, matchInfo, gifView } = this.state;
 
 
     var percentage = 0;
@@ -140,6 +150,12 @@ class MatchImageForm extends React.Component {
     return (
       <div style={{'width': '100%'}}>
         <Messages messages={messages} />
+        {
+          gifView ? <div className="gif-view">
+                      <img src="/img/spinner-icon-gif-7.gif" /> 
+                    </div> : <div></div>
+        }
+        
         <Row gutter={16} type="flex" justify="space-around" align="middle">
           <Col span={12}>
             <div className="main-face-back">
@@ -175,7 +191,7 @@ class MatchImageForm extends React.Component {
                         {form.getFieldDecorator('nid_number', {
                           rules: [{ required: true, message: 'Please input your NID number!' }],
                         })(
-                          <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="NID Number" />,
+                          <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="NID Number" onChange={this.inputChange} />,
                         )}
                       </FormItem>
 

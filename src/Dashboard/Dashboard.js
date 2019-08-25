@@ -50,12 +50,13 @@ class UploadImageForm extends React.Component {
 
   state = {
     loading: false,
+    gifView: false,
   };
 
   handleChange = info => {
     console.log('info', info.file.name)
     if (info.file.status === 'uploading') {
-      this.setState({ loading: true });
+      this.setState({ loading: true, gifView: true, });
       return;
     }
     if (info.file.status === 'done') {
@@ -66,6 +67,7 @@ class UploadImageForm extends React.Component {
           imageUrl,
           imageName: info.file.name,
           loading: false,
+          gifView: false,
         }),
       );
     }
@@ -80,10 +82,23 @@ class UploadImageForm extends React.Component {
     const { imageUrl, imageName } = this.state;
     form.validateFields((err, values) => {
       if (!err) {
+        this.setState({ gifView: true });
         dispatch(upload(values.nid_number, imageUrl, imageName, this.props));
       }
     });
   }
+
+
+  componentDidUpdate(prevProps) {
+    console.log('componentDidUpdate')
+    console.log('this.props.messages', this.props.messages)
+    console.log('prevProps.messages', prevProps.messages)
+    if(this.props.uploadInfo !== prevProps.uploadInfo) 
+    {
+      console.log('message are not same..................')
+      this.setState({ gifView: false });
+    }
+  } 
 
   render () {
     const { form, messages } = this.props;
@@ -95,11 +110,19 @@ class UploadImageForm extends React.Component {
         <div className="ant-upload-text">Upload</div>
       </div>
     );
-    const { imageUrl } = this.state;
+    const { imageUrl, gifView } = this.state;
 
     return (
       <div style={{'width': '100%'}}>
         <Messages messages={messages} />
+
+        {
+          gifView ? <div className="gif-view">
+                      <img src="/img/spinner-icon-gif-7.gif" /> 
+                    </div> : <div></div>
+        }
+
+
         <Row gutter={16} type="flex" justify="space-around" align="middle">
           <Col span={24}>
             <div className="main-face-back">
@@ -157,7 +180,7 @@ class UploadImageForm extends React.Component {
 const mapStateToProps = (state) => {
   return {
     messages: state.messages,
-    user: state.auth,
+    uploadInfo: state.upload.uploadData,
   };
 };
 

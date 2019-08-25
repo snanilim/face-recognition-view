@@ -4,6 +4,7 @@ import auth from '../../Auth/authReducer';
 import user from '../../User/userReducer';
 import material from '../../Material/materialReducer';
 import match from '../../Tag/matchReducer';
+import upload from '../../Dashboard/uploadReducer';
 // import generator from '../../Generator/generatorReducer';
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
   auth,
   user,
   material,
-  match
+  match,
+  upload
 });
