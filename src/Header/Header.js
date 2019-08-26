@@ -15,7 +15,6 @@ import {
     Button,
     Form
 } from 'antd';
-import { logout } from '../Auth/authAction';
 
 
 class HeadBar extends React.Component {
@@ -52,13 +51,13 @@ class HeadBar extends React.Component {
               <Menu.Item key="dashboard">
                 <Icon type="dashboard" />
                 <span>Upload Image</span>
-                <Link to="/dashboard" />
+                <Link to="/upload" />
               </Menu.Item>
               
               <Menu.Item key="tag">
                 <Icon type="deployment-unit" />
                 <span>Match Image</span>
-                <Link to="/tag" />
+                <Link to="/match" />
               </Menu.Item>
               
             </Menu>
@@ -74,8 +73,6 @@ class HeadBar extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    token: state.auth.token,
-    user: state.auth.user,
   };
 };
 

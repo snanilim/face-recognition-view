@@ -1,11 +1,12 @@
 const fetch = require('node-fetch');
+const config = require('config');
 
 const { resMsg } = require('../../helper/resMsg');
 
 exports.upload = async (req, res, next) => {
   const { body: data } = req;
   try {
-    const url = 'http://localhost:5000/upload-nid';
+    const url = `${config.get('api_url')}/upload-nid`;
     const body = JSON.stringify(data);
     const headers = { 'Content-Type': 'application/json' };
     const response = await fetch(url, { method: 'POST', body, headers });
@@ -22,7 +23,7 @@ exports.upload = async (req, res, next) => {
 exports.match = async (req, res, next) => {
   const { body: data } = req;
   try {
-    const url = 'http://localhost:5000/face-match';
+    const url = `${config.get('api_url')}/face-match`;
     const body = JSON.stringify(data);
     const headers = { 'Content-Type': 'application/json' };
     const response = await fetch(url, { method: 'POST', body, headers });

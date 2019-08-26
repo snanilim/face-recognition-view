@@ -1,5 +1,6 @@
 {
     "port": 8000,
     "version": "v1",
-    "jwtTimeExpire": 100
+    "jwtTimeExpire": 100,
+    "API_URI": "http://localhost:5000"
 }

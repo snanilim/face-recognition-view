@@ -7,7 +7,6 @@ import {
   Col
 } from 'antd';
 import HeaderMenu from '../Header/Header';
-import Sidebar from '../Sidebar/Sidebar';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -55,7 +54,7 @@ class DashboardLayout extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  users: state.auth.users,
+  
 });
 
 export default connect(mapStateToProps)(DashboardLayout);

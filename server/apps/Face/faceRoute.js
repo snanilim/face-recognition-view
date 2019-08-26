@@ -1,15 +1,15 @@
 const express = require('express');
-const authController = require('./authController');
+const faceController = require('./faceController');
 
 const router = express.Router();
 
 router
   .route('/upload')
-  .post(authController.upload);
+  .post(faceController.upload);
 
 router
   .route('/match')
-  .post(authController.match);
+  .post(faceController.match);
 
 
 module.exports = router;

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
-import { match } from '../matchAction';
-import Messages from '../../Others/Messages';
+import { match } from './matchAction';
+import Messages from '../Others/Messages';
 
 import {
   Card,
@@ -215,12 +215,14 @@ class MatchImageForm extends React.Component {
 
                 <h4>{pending ? 'pending...': match_result}</h4>
 
-                <Row gutter={16} type="flex" justify="space-around" align="middle">
-                  <Col span={12}>
+                <Row gutter={4} type="flex" justify="space-around" align="middle">
+                  <Col span={8}>
                     <Avatar shape="square" size={164} src={"http://localhost:5000" + matchInfo.old_image_path}  />
                   </Col>
-                  <Col span={12}>
-                    {/* { imageUrl ? <Avatar shape="square" size={164} src={imageUrl} /> : uploadButton } */}
+                  <Col span={8} style={Object.keys(matchInfo).length > 0 ? {'display': 'block'} : {'display': 'none'}}>
+                    { percentage > 50 ? <Icon style={{ color: 'green', fontSize: '80px' }} type="check-circle" theme="filled" /> : <Icon style={{ color: 'red', fontSize: '80px' }} type="close-circle" theme="filled" /> }
+                  </Col>
+                  <Col span={8}>
                     <Avatar shape="square" size={164} src={imageUrl}  />
                   </Col>
                 </Row>
